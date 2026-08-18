@@ -1,105 +1,89 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun } from 'lucide-react';
-import { Button } from './ui/Button';
+import { Menu, X, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-      
-      // Update active section based on scroll position
-      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element && window.scrollY >= (element.offsetTop - 150)) {
-          setActiveSection(section);
-        }
-      }
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
+  const triggerAI = () => {
+    window.dispatchEvent(new CustomEvent('open-ai-chat'));
   };
 
   const navLinks = [
-    { name: 'About', href: '#about', id: 'about' },
-    { name: 'Skills', href: '#skills', id: 'skills' },
-    { name: 'Projects', href: '#projects', id: 'projects' },
-    { name: 'Experience', href: '#experience', id: 'experience' },
-    { name: 'Contact', href: '#contact', id: 'contact' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Skills', href: '/skills' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Experience', href: '/experience' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 transition-all duration-500 pt-4 px-4 sm:px-6 lg:px-8 pointer-events-none">
-      <div className={`mx-auto max-w-5xl pointer-events-auto transition-all duration-500 rounded-full ${isScrolled ? 'bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl border border-gray-200/50 dark:border-gray-800/50 shadow-soft dark:shadow-soft-dark py-3 px-6' : 'bg-transparent py-3 px-2'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${isScrolled ? 'bg-background/80 backdrop-blur-md border-border py-4' : 'bg-transparent border-transparent py-6'}`}>
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <a href="#" onClick={() => setActiveSection('home')} className="text-xl font-bold tracking-tight text-gray-900 dark:text-white shrink-0 ml-2">
-            Sachin<span className="text-primary-600">.</span>
-          </a>
+          {/* Logo */}
+          <Link to="/" className="text-lg font-mono font-bold tracking-tight text-text-primary group">
+            sachin<span className="text-accent group-hover:text-accent-hover transition-colors">_</span>
+          </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-2">
-            <ul className="flex space-x-1 mr-4">
-              {navLinks.map((link) => (
-                <li key={link.name} className="relative">
-                  <a 
-                    href={link.href} 
-                    onClick={() => setActiveSection(link.id)}
-                    className={`relative z-10 block px-4 py-2 text-sm font-medium transition-colors duration-300 ${activeSection === link.id ? 'text-primary-700 dark:text-primary-300' : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'}`}
-                  >
-                    {link.name}
-                  </a>
-                  {activeSection === link.id && (
-                    <motion.div
-                      layoutId="activeSection"
-                      className="absolute inset-0 bg-primary-50 dark:bg-primary-900/30 rounded-full -z-0"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </li>
-              ))}
+          <div className="hidden md:flex items-center space-x-1">
+            <ul className="flex items-center space-x-1 mr-4 bg-[#0a0a0a] rounded-full p-1 border border-border">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.href;
+                return (
+                  <li key={link.name} className="relative">
+                    <Link 
+                      to={link.href} 
+                      className={`relative z-10 block px-4 py-1.5 text-xs font-mono transition-colors duration-300 ${isActive ? 'text-background' : 'text-text-muted hover:text-text-primary'}`}
+                    >
+                      {link.name}
+                    </Link>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNav"
+                        className="absolute inset-0 bg-accent rounded-full -z-0"
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                  </li>
+                );
+              })}
             </ul>
-            <div className="flex items-center space-x-3 border-l border-gray-200 dark:border-gray-800 pl-4 shrink-0">
+
+            <div className="flex items-center space-x-3">
               <button 
-                onClick={toggleTheme} 
-                className="p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
-                aria-label="Toggle dark mode"
+                onClick={triggerAI}
+                className="flex items-center text-xs font-mono px-4 py-2 rounded-full border border-border text-text-secondary hover:text-accent hover:border-accent/30 transition-all bg-[#0a0a0a]"
               >
-                {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+                <Terminal size={14} className="mr-2" />
+                Ask AI
               </button>
-              <Button as="a" href="/resume.pdf" target="_blank" variant="primary" size="sm" className="h-9 px-4">
-                Resume
-              </Button>
             </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-3 shrink-0">
+          <div className="md:hidden flex items-center space-x-3">
             <button 
-              onClick={toggleTheme} 
-              className="p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+              onClick={triggerAI}
+              className="text-text-secondary hover:text-accent transition-colors"
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              <Terminal size={20} />
             </button>
             <button 
-              className="text-gray-900 dark:text-white p-1"
+              className="text-text-primary p-1"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -113,28 +97,23 @@ export function Navbar() {
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl border border-gray-200 dark:border-gray-800 rounded-2xl p-4 shadow-xl pointer-events-auto"
+          className="md:hidden absolute top-full left-0 right-0 bg-[#0a0a0a] border-b border-border shadow-2xl"
         >
-          <ul className="flex flex-col space-y-2">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a 
-                  href={link.href} 
-                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${activeSection === link.id ? 'bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300' : 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-900'}`}
-                  onClick={() => {
-                    setActiveSection(link.id);
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-            <li className="pt-4 mt-2 border-t border-gray-100 dark:border-gray-800">
-              <Button as="a" href="/resume.pdf" target="_blank" variant="primary" className="w-full">
-                Download Resume
-              </Button>
-            </li>
+          <ul className="flex flex-col py-4 px-4 space-y-1">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.href;
+              return (
+                <li key={link.name}>
+                  <Link 
+                    to={link.href} 
+                    className={`block px-4 py-3 rounded-lg text-sm font-mono transition-colors ${isActive ? 'bg-accent/10 text-accent' : 'text-text-secondary hover:bg-border/50 hover:text-text-primary'}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </motion.div>
       )}

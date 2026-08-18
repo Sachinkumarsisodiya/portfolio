@@ -1,207 +1,169 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Terminal, Sparkles } from 'lucide-react';
+import { ArrowRight, Terminal, MapPin, Mail, Eye } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { Button } from './ui/Button';
+import { Link } from 'react-router-dom';
 
 export function Hero() {
+  const [greeting, setGreeting] = useState('Welcome');
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour >= 5 && hour < 12) setGreeting("Good morning");
+    else if (hour >= 12 && hour < 17) setGreeting("Good afternoon");
+    else if (hour >= 17 && hour < 22) setGreeting("Good evening");
+    else setGreeting("Good night");
+  }, []);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
-      {/* Background patterns */}
-      <div className="absolute inset-0 z-0 bg-noise opacity-[0.03] dark:opacity-[0.02] pointer-events-none" />
-      <div className="absolute inset-0 z-0 bg-grid-pattern dark:bg-grid-pattern-dark [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50 dark:opacity-20 pointer-events-none" />
-      <div className="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-primary-500/20 dark:bg-primary-600/10 blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen -z-10 pointer-events-none" />
-      <div className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-blue-400/20 dark:bg-blue-600/10 blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen -z-10 pointer-events-none" />
+    <section className="relative min-h-[90vh] flex items-center pt-20 pb-12 overflow-hidden border-b border-border">
+      {/* Abstract Grid Background */}
+      <div className="absolute inset-0 z-0 bg-grid-pattern opacity-10 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Text & CTAs */}
+          {/* Left Column */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="max-w-2xl"
           >
-            <motion.div variants={itemVariants}>
-              <span className="inline-flex items-center space-x-2 py-1.5 px-4 rounded-full bg-white/5 dark:bg-white/5 backdrop-blur-md text-gray-900 dark:text-gray-100 text-sm font-medium mb-6 border border-gray-200/20 dark:border-white/10 shadow-glass dark:shadow-glass-dark">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 mb-6">
+              <span className="inline-flex items-center space-x-2 py-1 px-3 rounded-full bg-[#101010] border border-[#242424] text-text-primary text-xs font-mono">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
                 </span>
-                <span>Available for new opportunities</span>
+                <span>Open to Work</span>
               </span>
+              <span className="inline-flex items-center text-text-muted text-xs font-mono">
+                <MapPin size={12} className="mr-1" />
+                Jaipur, Rajasthan, India
+              </span>
+            </motion.div>
+            
+            <motion.div variants={itemVariants} className="text-accent font-mono text-sm mb-3">
+              {greeting}
             </motion.div>
             
             <motion.h1 
               variants={itemVariants}
-              className="text-6xl sm:text-7xl lg:text-[5.5rem] font-bold text-gray-900 dark:text-white mb-6 leading-[1.05] tracking-tighter"
+              className="text-5xl sm:text-6xl lg:text-[4.5rem] font-bold text-text-primary mb-4 leading-[1.1] tracking-tight"
             >
-              Hi, I'm Sachin.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 pb-2 inline-block animate-pulse-slow">
-                Full-Stack Developer
-              </span>
+              Hi, I'm Sachin Sisodiya.
             </motion.h1>
+
+            <motion.h2
+              variants={itemVariants}
+              className="text-2xl sm:text-3xl text-text-secondary font-semibold mb-6"
+            >
+              Full Stack Python & Shopify Developer.
+            </motion.h2>
 
             <motion.p 
               variants={itemVariants}
-              className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed max-w-lg font-sans"
+              className="text-lg text-text-muted mb-10 leading-relaxed max-w-lg font-sans"
             >
-              Building responsive web apps and Shopify products, blending traditional coding with AI-assisted development to ship fast, functional software.
+              I build modern web applications, REST APIs, Shopify experiences, and AI-assisted digital products with a focus on clean code, responsive interfaces, and real-world usability.
             </motion.p>
 
             <motion.div 
               variants={itemVariants}
               className="flex flex-wrap gap-4 items-center"
             >
-              <Button as="a" href="#projects" variant="primary" className="group shadow-glow hover:shadow-glow-hover transition-all duration-300 hover:-translate-y-1">
+              <Link to="/projects" className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium bg-accent text-[#050505] rounded-md hover:bg-accent-hover transition-colors shadow-glow hover:shadow-glow-hover">
                 View Projects 
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-              </Button>
-              <Button as="a" href="#contact" variant="outline" className="backdrop-blur-md bg-white/5 border-white/10 hover:bg-white/10 dark:text-white transition-all duration-300 hover:-translate-y-1">
-                Contact Me
-              </Button>
-              <div className="flex items-center space-x-4 ml-4 mt-4 sm:mt-0">
-                <a href="https://github.com/Sachinkumarsisodiya" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300 inline-block">
-                  <FaGithub size={24} />
-                  <span className="sr-only">GitHub</span>
-                </a>
-                <a href="https://linkedin.com/in/sachin-kumar-sisodiya" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300 inline-block">
-                  <FaLinkedin size={24} />
-                  <span className="sr-only">LinkedIn</span>
-                </a>
-                <a href="mailto:sachinsisodiya005@gmail.com" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors hover:-translate-y-1 duration-300 inline-block">
-                  <Mail size={24} />
-                  <span className="sr-only">Email</span>
-                </a>
-              </div>
+                <ArrowRight className="ml-2" size={16} />
+              </Link>
+              
+              <a href="/Sachin_Sisodiya_Resume.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium bg-card text-text-primary border border-border rounded-md hover:bg-border/50 hover:text-white transition-colors">
+                <Eye className="mr-2" size={16} />
+                View Resume
+              </a>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="flex items-center gap-5 mt-10">
+              <a href="https://github.com/Sachinkumarsisodiya" target="_blank" rel="noreferrer" className="text-text-muted hover:text-text-primary transition-colors flex items-center">
+                <FaGithub size={20} />
+                <span className="sr-only">GitHub</span>
+              </a>
+              <a href="https://linkedin.com/in/sachin-kumar-sisodiya" target="_blank" rel="noreferrer" className="text-text-muted hover:text-text-primary transition-colors flex items-center">
+                <FaLinkedin size={20} />
+                <span className="sr-only">LinkedIn</span>
+              </a>
+              <a href="mailto:sachinsisodiya005@gmail.com" className="text-text-muted hover:text-text-primary transition-colors flex items-center">
+                <Mail size={20} />
+                <span className="sr-only">Email</span>
+              </a>
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Visual Anchor */}
+          {/* Right Column: Terminal Window */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            className="relative hidden lg:block animate-float"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="hidden lg:block relative"
           >
-            {/* Abstract Terminal Window */}
-            <div className="relative rounded-2xl bg-white/10 dark:bg-[#0a0a0a]/60 backdrop-blur-2xl border border-gray-200/20 dark:border-white/10 shadow-glass dark:shadow-glass-dark overflow-hidden aspect-[4/3] w-full flex flex-col transform rotate-2 hover:rotate-0 transition-transform duration-700">
-              <div className="flex items-center px-4 py-3 border-b border-gray-200/10 dark:border-white/5 bg-white/5 dark:bg-white/5">
+            <div className="absolute -inset-1 bg-accent/20 blur-2xl rounded-full opacity-30 z-0"></div>
+            <div className="relative rounded-xl bg-[#0a0a0a] border border-[#242424] shadow-subtle overflow-hidden w-full flex flex-col font-mono text-sm z-10">
+              {/* Terminal Header */}
+              <div className="flex items-center px-4 py-3 border-b border-[#242424] bg-[#101010]">
                 <div className="flex space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_8px_rgba(239,68,68,0.5)]"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80 shadow-[0_0_8px_rgba(234,179,8,0.5)]"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/80 shadow-[0_0_8px_rgba(34,197,94,0.5)]"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#ef4444]"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#eab308]"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#22c55e]"></div>
                 </div>
-                <div className="mx-auto flex items-center text-xs text-gray-400 font-mono">
-                  <Terminal size={14} className="mr-2" />
-                  agent.js
+                <div className="mx-auto flex items-center text-xs text-text-muted">
+                  <Terminal size={12} className="mr-2" />
+                  bash
                 </div>
               </div>
-              <div className="p-6 font-mono text-sm leading-relaxed overflow-hidden">
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1, duration: 0.5 }}
-                >
-                  <span className="text-pink-400 font-semibold">import</span> <span className="text-gray-900 dark:text-white">{'{'}</span> <span className="text-blue-500 dark:text-blue-300 font-semibold">AIAgent</span> <span className="text-gray-900 dark:text-white">{'}'}</span> <span className="text-pink-400 font-semibold">from</span> <span className="text-green-500 dark:text-green-300">'@antigravity/core'</span><span className="text-gray-500">;</span>
+              
+              {/* Terminal Body */}
+              <div className="p-6 space-y-4 text-text-secondary leading-relaxed">
+                <div>
+                  <span className="text-accent">$</span> <span className="text-text-primary">whoami</span>
+                  <p className="mt-1 text-text-muted">Sachin Sisodiya</p>
+                </div>
+                
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
+                  <span className="text-accent">$</span> <span className="text-text-primary">role</span>
+                  <p className="mt-1 text-text-muted">Full Stack Python Developer</p>
                 </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.2, duration: 0.5 }}
-                  className="mt-4"
-                >
-                  <span className="text-pink-400 font-semibold">const</span> <span className="text-blue-500 dark:text-blue-300">buildProject</span> <span className="text-gray-900 dark:text-white">=</span> <span className="text-pink-400 font-semibold">async</span> <span className="text-gray-900 dark:text-white">()</span> <span className="text-pink-400 font-semibold">=&gt;</span> <span className="text-gray-900 dark:text-white">{'{'}</span>
+
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5 }}>
+                  <span className="text-accent">$</span> <span className="text-text-primary">stack</span>
+                  <p className="mt-1 text-text-muted">Python • FastAPI • React • Shopify</p>
                 </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.4, duration: 0.5 }}
-                  className="pl-4"
-                >
-                  <span className="text-pink-400 font-semibold">await</span> <span className="text-blue-500 dark:text-blue-300">AIAgent</span><span className="text-gray-900 dark:text-white">.</span><span className="text-yellow-500 dark:text-yellow-200">execute</span><span className="text-gray-900 dark:text-white">({'{'}</span>
+
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3.5 }}>
+                  <span className="text-accent">$</span> <span className="text-text-primary">status</span>
+                  <p className="mt-1 text-accent">Open to Work</p>
                 </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.6, duration: 0.5 }}
-                  className="pl-8"
-                >
-                  <span className="text-blue-500 dark:text-blue-300">task:</span> <span className="text-green-500 dark:text-green-300">"Build production-ready app"</span><span className="text-gray-500">,</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.8, duration: 0.5 }}
-                  className="pl-8"
-                >
-                  <span className="text-blue-500 dark:text-blue-300">tools:</span> <span className="text-gray-900 dark:text-white">[</span><span className="text-green-500 dark:text-green-300">'React'</span><span className="text-gray-500">,</span> <span className="text-green-500 dark:text-green-300">'Tailwind'</span><span className="text-gray-500">,</span> <span className="text-green-500 dark:text-green-300">'Python'</span><span className="text-gray-900 dark:text-white">]</span><span className="text-gray-500">,</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 2.0, duration: 0.5 }}
-                  className="pl-8"
-                >
-                  <span className="text-blue-500 dark:text-blue-300">optimize:</span> <span className="text-orange-500 dark:text-orange-300">true</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 2.2, duration: 0.5 }}
-                  className="pl-4"
-                >
-                  <span className="text-gray-900 dark:text-white">{'}'})</span><span className="text-gray-500">;</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 2.4, duration: 0.5 }}
-                >
-                  <span className="text-gray-900 dark:text-white">{'}'}</span><span className="text-gray-500">;</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 3, type: "spring" }}
-                  className="mt-6 flex items-center text-green-500 dark:text-green-400 font-bold drop-shadow-[0_0_8px_rgba(34,197,94,0.4)]"
-                >
-                  <span className="mr-2">❯</span> Success: Deployed perfectly.
+                
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 4.5 }} className="flex items-center">
+                  <span className="text-accent">$</span> <span className="w-2 h-4 bg-text-primary ml-2 animate-pulse"></span>
                 </motion.div>
               </div>
             </div>
-            
-            {/* Floating Badge */}
-            <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-6 -left-6 bg-white/20 dark:bg-[#0a0a0a]/60 backdrop-blur-xl p-4 rounded-2xl shadow-glass dark:shadow-glass-dark border border-white/20 dark:border-white/10 flex items-center space-x-3 z-20"
-            >
-              <div className="w-10 h-10 bg-primary-500/20 dark:bg-primary-500/20 rounded-xl flex items-center justify-center text-primary-600 dark:text-primary-400 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
-                <Sparkles size={20} />
-              </div>
-              <div>
-                <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Workflow</p>
-                <p className="font-bold text-gray-900 dark:text-white">AI-Assisted Dev</p>
-              </div>
-            </motion.div>
-            
           </motion.div>
 
         </div>

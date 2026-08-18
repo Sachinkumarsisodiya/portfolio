@@ -1,45 +1,50 @@
-import { Mail } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="relative z-10 border-t border-gray-200/20 dark:border-white/10 bg-white/5 dark:bg-black/10 backdrop-blur-xl py-12 mt-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <a href="#" className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Sachin<span className="text-primary-600 dark:text-primary-400">.</span>
-            </a>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 font-medium">
-              Building fast, functional, user-friendly software.
+    <footer className="bg-background border-t border-border py-12">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
+          {/* Brand & Info */}
+          <div className="md:col-span-2">
+            <Link to="/" className="text-xl font-mono font-bold tracking-tight text-text-primary mb-4 block">
+              Sachin Sisodiya
+            </Link>
+            <p className="text-text-secondary text-sm mb-6 max-w-sm">
+              Full Stack Python & Shopify Developer based in Jaipur, Rajasthan, India. Building modern, performant web applications and AI-assisted products.
             </p>
           </div>
           
-          <div className="flex items-center space-x-6">
-            <a href="https://github.com/Sachinkumarsisodiya" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors hover:scale-110">
-              <span className="sr-only">GitHub</span>
-              <FaGithub size={20} />
-            </a>
-            <a href="https://linkedin.com/in/sachin-kumar-sisodiya" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors hover:scale-110">
-              <span className="sr-only">LinkedIn</span>
-              <FaLinkedin size={20} />
-            </a>
-            <a href="mailto:sachinsisodiya005@gmail.com" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors hover:scale-110">
-              <span className="sr-only">Email</span>
-              <Mail size={20} />
-            </a>
+          {/* Navigation */}
+          <div>
+            <h4 className="text-text-primary font-bold mb-4 uppercase tracking-wider text-sm">Navigation</h4>
+            <ul className="space-y-2">
+              <li><Link to="/" className="text-text-muted hover:text-accent transition-colors text-sm">Home</Link></li>
+              <li><Link to="/about" className="text-text-muted hover:text-accent transition-colors text-sm">About</Link></li>
+              <li><Link to="/skills" className="text-text-muted hover:text-accent transition-colors text-sm">Skills</Link></li>
+              <li><Link to="/projects" className="text-text-muted hover:text-accent transition-colors text-sm">Projects</Link></li>
+              <li><Link to="/experience" className="text-text-muted hover:text-accent transition-colors text-sm">Experience</Link></li>
+              <li><Link to="/contact" className="text-text-muted hover:text-accent transition-colors text-sm">Contact</Link></li>
+            </ul>
+          </div>
+          
+          {/* Social */}
+          <div>
+            <h4 className="text-text-primary font-bold mb-4 uppercase tracking-wider text-sm">Social</h4>
+            <ul className="space-y-2">
+              <li><a href="https://github.com/Sachinkumarsisodiya" target="_blank" rel="noreferrer" className="text-text-muted hover:text-accent transition-colors text-sm">GitHub</a></li>
+              <li><a href="https://linkedin.com/in/sachin-kumar-sisodiya" target="_blank" rel="noreferrer" className="text-text-muted hover:text-accent transition-colors text-sm">LinkedIn</a></li>
+              <li><a href="mailto:sachinsisodiya005@gmail.com" className="text-text-muted hover:text-accent transition-colors text-sm">Email</a></li>
+            </ul>
           </div>
         </div>
         
-        <div className="mt-8 pt-8 border-t border-gray-200/20 dark:border-white/5 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
-          <p className="font-medium">
-            &copy; {new Date().getFullYear()} Sachin Kumar. All rights reserved.
-          </p>
-          <div className="mt-4 md:mt-0 space-x-6 font-medium">
-            <a href="#about" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
-            <a href="#projects" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Projects</a>
-            <a href="#contact" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
-          </div>
+        <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-text-muted">
+          <p>© {currentYear} Sachin Sisodiya. All rights reserved.</p>
+          <p className="mt-2 md:mt-0">Jaipur, Rajasthan, India</p>
         </div>
       </div>
     </footer>
