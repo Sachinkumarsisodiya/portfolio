@@ -29,8 +29,9 @@ export function About() {
   return (
     <section className="py-20 relative">
       <SectionHeading 
-        title="Building practical software with modern technologies." 
-        subtitle="About Me" 
+        title="Building practical software with" 
+        highlight="modern technologies."
+        subtitle="About"
         align="left"
       />
       
@@ -60,7 +61,7 @@ export function About() {
               {/* The uploaded profile image */}
               <img 
                 src="/profile.jpg" 
-                alt="Sachin Sisodiya working on laptop" 
+                alt="Sachin Kumar Sisodiya working on laptop" 
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" 
               />
               {/* Dark overlay gradient to blend with the dark theme */}

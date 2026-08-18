@@ -6,7 +6,7 @@ export function AskSachin() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: 'Hi! I am an AI trained on Sachin Sisodiya\'s portfolio. Ask me anything about his skills, experience, or projects.' }
+    { role: 'assistant', content: 'Hi! I am an AI trained on Sachin Kumar Sisodiya\'s portfolio. Ask me anything about his skills, experience, or projects.' }
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const endOfMessagesRef = useRef(null);
@@ -38,7 +38,7 @@ export function AskSachin() {
         throw new Error("API Key missing");
       }
       
-      const systemInstruction = `You are a helpful and professional AI assistant integrated into Sachin Sisodiya's portfolio website. 
+      const systemInstruction = `You are a helpful and professional AI assistant integrated into Sachin Kumar Sisodiya's portfolio website. 
 Your goal is to answer questions about Sachin's skills, experience, projects, and background. 
 Always refer to Sachin in the third person. 
 

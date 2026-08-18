@@ -31,7 +31,7 @@ export function Education() {
     <section id="education" className="py-20 relative">
       <SectionHeading 
         title="Education" 
-        subtitle="Academic Background"
+        subtitle="Academic" highlight="Background"
         align="left"
       />
       

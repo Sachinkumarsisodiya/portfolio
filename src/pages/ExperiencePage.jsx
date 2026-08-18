@@ -3,7 +3,7 @@ import { Experience } from '../components/Experience';
 
 export function ExperiencePage() {
   return (
-    <PageWrapper title="Experience" description="Sachin Sisodiya's Work Experience">
+    <PageWrapper title="Experience" description="Sachin Kumar Sisodiya's Work Experience">
       <Experience />
     </PageWrapper>
   );

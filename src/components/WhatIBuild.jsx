@@ -33,7 +33,7 @@ export function WhatIBuild() {
   return (
     <section className="py-20 relative">
       <SectionHeading 
-        title="What I Build" 
+        title="What I" highlight="Build" 
         subtitle="Services & Expertise" 
         align="left"
       />

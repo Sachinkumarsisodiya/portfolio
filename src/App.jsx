@@ -1,11 +1,13 @@
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { AnimatePresence } from 'framer-motion';
-import { useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { AskSachin } from './components/AskSachin';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { Preloader } from './components/Preloader';
 
 // Pages
 import { Home } from './pages/Home';
@@ -41,21 +43,31 @@ function AnimatedRoutes() {
 }
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <HelmetProvider>
       <Router>
-        {/* Global minimal dark theme background */}
-        <div className="min-h-screen bg-[#050505] text-[#F5F5F5] font-sans transition-colors duration-300 relative flex flex-col">
-          
-          <Navbar />
-          <AskSachin />
-          
-          <main className="flex-grow flex flex-col z-10">
-            <AnimatedRoutes />
-          </main>
-          
-          <Footer />
-        </div>
+        <AnimatePresence mode="wait">
+          {loading ? (
+            <Preloader key="preloader" onComplete={() => setLoading(false)} />
+          ) : (
+            <motion.div 
+              key="main-app"
+              className="min-h-screen bg-[#050505] text-[#F5F5F5] font-sans transition-colors duration-300 relative flex flex-col"
+            >
+              <Navbar />
+              <AskSachin />
+              <FloatingWhatsApp />
+              
+              <main className="flex-grow flex flex-col z-10">
+                <AnimatedRoutes />
+              </main>
+              
+              <Footer />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </Router>
     </HelmetProvider>
   );

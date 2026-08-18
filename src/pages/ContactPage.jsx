@@ -3,7 +3,7 @@ import { Contact } from '../components/Contact';
 
 export function ContactPage() {
   return (
-    <PageWrapper title="Contact" description="Get in touch with Sachin Sisodiya">
+    <PageWrapper title="Contact" description="Get in touch with Sachin Kumar Sisodiya">
       <Contact />
     </PageWrapper>
   );

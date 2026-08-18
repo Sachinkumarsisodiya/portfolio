@@ -11,7 +11,7 @@ export function Footer() {
           {/* Brand & Info */}
           <div className="md:col-span-2">
             <Link to="/" className="text-xl font-mono font-bold tracking-tight text-text-primary mb-4 block">
-              Sachin Sisodiya
+              Sachin Kumar Sisodiya
             </Link>
             <p className="text-text-secondary text-sm mb-6 max-w-sm">
               Full Stack Python & Shopify Developer based in Jaipur, Rajasthan, India. Building modern, performant web applications and AI-assisted products.
@@ -43,7 +43,7 @@ export function Footer() {
         </div>
         
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-text-muted">
-          <p>© {currentYear} Sachin Sisodiya. All rights reserved.</p>
+          <p>© {currentYear} Sachin Kumar Sisodiya. All rights reserved.</p>
           <p className="mt-2 md:mt-0">Jaipur, Rajasthan, India</p>
         </div>
       </div>

@@ -29,8 +29,8 @@ export function PageWrapper({ children, title, description, showBreadcrumb = tru
   const location = useLocation();
   const isHome = location.pathname === '/';
   
-  const defaultTitle = "Sachin Sisodiya | Full Stack Python & Shopify Developer";
-  const defaultDesc = "Portfolio of Sachin Sisodiya, a Full Stack Python and Shopify Developer from Jaipur, India, showcasing web applications, APIs, Shopify projects and AI-assisted development.";
+  const defaultTitle = "Sachin Kumar Sisodiya | Full Stack Python & Shopify Developer";
+  const defaultDesc = "Portfolio of Sachin Kumar Sisodiya, a Full Stack Python and Shopify Developer from Jaipur, India, showcasing web applications, APIs, Shopify projects and AI-assisted development.";
 
   return (
     <motion.div
@@ -42,9 +42,9 @@ export function PageWrapper({ children, title, description, showBreadcrumb = tru
       className="w-full flex-grow pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1280px] mx-auto relative z-10"
     >
       <Helmet>
-        <title>{title ? `${title} — Sachin Sisodiya` : defaultTitle}</title>
+        <title>{title ? `${title} — Sachin Kumar Sisodiya` : defaultTitle}</title>
         <meta name="description" content={description || defaultDesc} />
-        <meta property="og:title" content={title ? `${title} — Sachin Sisodiya` : defaultTitle} />
+        <meta property="og:title" content={title ? `${title} — Sachin Kumar Sisodiya` : defaultTitle} />
         <meta property="og:description" content={description || defaultDesc} />
         <meta property="og:type" content="website" />
       </Helmet>

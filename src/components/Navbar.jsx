@@ -34,8 +34,13 @@ export function Navbar() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="text-lg font-mono font-bold tracking-tight text-text-primary group">
-            sachin<span className="text-accent group-hover:text-accent-hover transition-colors">_</span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-border/50 group-hover:border-accent transition-all duration-300 shadow-sm">
+              <img src="/avatar.jpg" alt="Sachin" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <span className="text-lg font-mono font-bold tracking-tight text-text-primary transition-colors duration-300 group-hover:text-white">
+              <span className="text-accent">&lt;</span>sachinkumarsisodiya<span className="text-accent">/&gt;</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}

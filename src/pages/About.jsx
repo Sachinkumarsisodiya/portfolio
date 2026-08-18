@@ -5,7 +5,7 @@ import { HowIWork } from '../components/HowIWork';
 
 export function About() {
   return (
-    <PageWrapper title="About" description="About Sachin Sisodiya - Full-Stack Developer">
+    <PageWrapper title="About" description="About Sachin Kumar Sisodiya - Full-Stack Developer">
       <AboutComponent />
       <HowIWork />
       <Education />

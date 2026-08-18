@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Terminal, MapPin, Mail, Eye } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export function Hero() {
@@ -67,14 +67,14 @@ export function Hero() {
               variants={itemVariants}
               className="text-5xl sm:text-6xl lg:text-[4.5rem] font-bold text-text-primary mb-4 leading-[1.1] tracking-tight"
             >
-              Hi, I'm Sachin Sisodiya.
+              Hi, I'm Sachin
             </motion.h1>
 
             <motion.h2
               variants={itemVariants}
-              className="text-2xl sm:text-3xl text-text-secondary font-semibold mb-6"
+              className="text-2xl sm:text-3xl text-text-secondary font-semibold mb-6 group"
             >
-              Full Stack Python & Shopify Developer.
+              Full Stack Python & <span className="font-serif italic font-light text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400 group-hover:drop-shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-500">Shopify Developer.</span>
             </motion.h2>
 
             <motion.p 
@@ -112,6 +112,10 @@ export function Hero() {
                 <Mail size={20} />
                 <span className="sr-only">Email</span>
               </a>
+              <a href="https://wa.me/917733866682" target="_blank" rel="noreferrer" className="text-text-muted hover:text-[#25D366] transition-colors flex items-center" title="Connect on WhatsApp">
+                <FaWhatsapp size={20} />
+                <span className="sr-only">WhatsApp</span>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -141,7 +145,7 @@ export function Hero() {
               <div className="p-6 space-y-4 text-text-secondary leading-relaxed">
                 <div>
                   <span className="text-accent">$</span> <span className="text-text-primary">whoami</span>
-                  <p className="mt-1 text-text-muted">Sachin Sisodiya</p>
+                  <p className="mt-1 text-text-muted">Sachin Kumar Sisodiya</p>
                 </div>
                 
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
