@@ -34,13 +34,40 @@ export function About() {
         align="left"
       />
       
-      <div className="mt-12 text-text-secondary leading-relaxed max-w-3xl font-sans text-lg space-y-6">
-        <p>
-          I am a Full-Stack Python and Shopify Developer focused on crafting clean, efficient, and user-centric digital solutions. With a strong foundation in modern web development practices, I bridge the gap between complex backend logic and seamless frontend interfaces.
-        </p>
-        <p>
-          My technical background spans across building scalable REST APIs, engineering custom Shopify experiences, and utilizing AI-assisted workflows to drastically improve development cycles and output quality. I am passionate about writing maintainable code and solving real-world business problems.
-        </p>
+      <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Text Bio */}
+        <div className="text-text-secondary leading-relaxed font-sans text-lg space-y-6">
+          <p>
+            I am a Full-Stack Python and Shopify Developer focused on crafting clean, efficient, and user-centric digital solutions. With a strong foundation in modern web development practices, I bridge the gap between complex backend logic and seamless frontend interfaces.
+          </p>
+          <p>
+            My technical background spans across building scalable REST APIs, engineering custom Shopify experiences, and utilizing AI-assisted workflows to drastically improve development cycles and output quality. I am passionate about writing maintainable code and solving real-world business problems.
+          </p>
+        </div>
+        
+        {/* Profile Image */}
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="relative group flex justify-center lg:justify-end mt-8 lg:mt-0"
+        >
+          <div className="relative w-full max-w-[320px] sm:max-w-[380px]">
+            {/* Subtle background glow */}
+            <div className="absolute -inset-4 bg-accent/20 rounded-3xl blur-2xl group-hover:bg-accent/30 transition-colors duration-500 -z-10"></div>
+            
+            <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl aspect-[4/5]">
+              {/* The uploaded profile image */}
+              <img 
+                src="/profile.jpg" 
+                alt="Sachin Sisodiya working on laptop" 
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" 
+              />
+              {/* Dark overlay gradient to blend with the dark theme */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-50 pointer-events-none"></div>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
