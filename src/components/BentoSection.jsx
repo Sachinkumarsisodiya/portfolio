@@ -138,20 +138,20 @@ export function BentoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="bg-[#0A0A0A] border border-border rounded-[2rem] p-8 relative overflow-hidden flex flex-col group min-h-[400px] shadow-subtle hover:border-border/80 transition-colors"
+            className="bg-[#0A0A0A] border border-border rounded-[2rem] p-8 relative overflow-hidden flex flex-col group min-h-[480px] md:min-h-[400px] shadow-subtle hover:border-border/80 transition-colors"
           >
             {/* Glowing inner shadow */}
             <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(255,255,255,0.02)] pointer-events-none rounded-[2rem]"></div>
 
-            <div className="relative z-10 mb-4 text-center">
+            <div className="relative z-10 mb-8 md:mb-4 text-center">
               <h3 className="text-text-muted text-xs font-bold tracking-widest uppercase mb-2">Flexible with Timezones</h3>
-              <p className="text-2xl font-bold text-text-primary mb-2 flex items-center justify-center">
-                Based in India, available <span className="font-serif italic text-accent ml-2">globally</span>
+              <p className="text-2xl font-bold text-text-primary mb-2">
+                Based in India, available <span className="font-serif italic text-accent">globally</span>
               </p>
             </div>
 
             {/* Realistic React Globe Container (Perfectly Centered & Sized) */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-8 opacity-90 group-hover:opacity-100 transition-opacity duration-500 cursor-grab active:cursor-grabbing flex justify-center items-center">
+            <div className="absolute top-[60%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-8 opacity-90 group-hover:opacity-100 transition-opacity duration-500 cursor-grab active:cursor-grabbing flex justify-center items-center">
               <Globe
                 ref={globeEl}
                 width={380}
