@@ -53,7 +53,8 @@ export function BentoSection() {
     { lat: 23.0225, lng: 72.5714, size: 0.03, color: '#d1d5db', name: 'Ahmedabad' },
     { lat: 22.7196, lng: 75.8577, size: 0.03, color: '#d1d5db', name: 'Indore' },
     { lat: 19.0760, lng: 72.8777, size: 0.03, color: '#d1d5db', name: 'Mumbai' },
-    { lat: 12.9716, lng: 77.5946, size: 0.03, color: '#d1d5db', name: 'Bangalore' }
+    { lat: 12.9716, lng: 77.5946, size: 0.03, color: '#d1d5db', name: 'Bangalore' },
+    { lat: 26.9124, lng: 75.7873, size: 0.15, color: '#ec4899', name: 'Jaipur (Base)' }
   ];
 
   return (
@@ -142,7 +143,7 @@ export function BentoSection() {
                 htmlElementsData={allMarkers}
                 htmlElement={d => {
                   const el = document.createElement('div');
-                  const isVisitor = d.name.includes('(You)');
+                  const isVisitor = d.name.includes('(You)') || d.name.includes('(Base)');
                   const fontSize = isVisitor ? '13px' : '10px';
                   const dotSize = isVisitor ? '8px' : '4px';
                   const fontWeight = isVisitor ? '800' : '600';
