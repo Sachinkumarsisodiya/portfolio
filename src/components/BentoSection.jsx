@@ -1,6 +1,7 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import Globe from "react-globe.gl";
+
+const LazyGlobe = lazy(() => import("./GlobeWidget"));
 
 // Extract Clock into a separate component so it doesn't re-render the whole BentoSection every second
 function ClockBadge() {
@@ -22,27 +23,6 @@ function ClockBadge() {
 }
 
 export function BentoSection() {
-  const globeEl = useRef();
-  const [countries, setCountries] = useState({ features: [] });
-
-  useEffect(() => {
-    // Fetch countries borders for deep details
-    fetch('https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson')
-      .then(res => res.json())
-      .then(setCountries)
-      .catch(err => console.error("Error loading country borders:", err));
-  }, []);
-
-  useEffect(() => {
-    // Auto-rotate and slightly zoomed-in position so cities are spread out and readable
-    if (globeEl.current) {
-      globeEl.current.controls().autoRotate = true;
-      globeEl.current.controls().autoRotateSpeed = 1.0;
-      globeEl.current.controls().enableZoom = false;
-      // Altitude 1.7 provides a good balance between seeing the whole globe and separating the cities
-      globeEl.current.pointOfView({ lat: 20, lng: 77, altitude: 1.7 }); 
-    }
-  }, []);
 
   const allMarkers = [
     { lat: 28.6139, lng: 77.2090, size: 0.05, color: '#a3e635', name: 'New Delhi' },
@@ -124,44 +104,9 @@ export function BentoSection() {
 
             {/* Realistic React Globe Container (Perfectly Centered & Sized) */}
             <div className="absolute top-[60%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-8 opacity-90 group-hover:opacity-100 transition-opacity duration-500 cursor-grab active:cursor-grabbing flex justify-center items-center">
-              <Globe
-                ref={globeEl}
-                width={380}
-                height={380}
-                backgroundColor="rgba(0,0,0,0)"
-                globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-                bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                
-                // Country borders for nations detail
-                polygonsData={countries.features}
-                polygonAltitude={0.01}
-                polygonCapColor={() => 'rgba(200, 200, 200, 0.02)'}
-                polygonSideColor={() => 'rgba(200, 200, 200, 0.02)'}
-                polygonStrokeColor={() => '#333333'} // Dark grey borders
-
-                // Use HTML Elements for absolute crispiest text rendering
-                htmlElementsData={allMarkers}
-                htmlElement={d => {
-                  const el = document.createElement('div');
-                  const isVisitor = d.name.includes('Jaipur');
-                  const fontSize = isVisitor ? '13px' : '10px';
-                  const dotSize = isVisitor ? '8px' : '4px';
-                  const fontWeight = isVisitor ? '800' : '600';
-                  const textShadow = '0 0 6px #000, 0 0 6px #000, 0 0 6px #000'; // Strong shadow for readability
-                  
-                  el.innerHTML = `
-                    <div style="display: flex; flex-direction: column; align-items: center; transform: translate(-50%, -100%); pointer-events: none;">
-                      <div style="color: ${d.color}; font-size: ${fontSize}; font-weight: ${fontWeight}; font-family: ui-sans-serif, system-ui, sans-serif; white-space: nowrap; text-shadow: ${textShadow}; letter-spacing: 0.5px;">${d.name}</div>
-                      <div style="width: ${dotSize}; height: ${dotSize}; background: ${d.color}; border-radius: 50%; box-shadow: 0 0 10px ${d.color}; margin-top: 4px;"></div>
-                    </div>
-                  `;
-                  return el;
-                }}
-                
-                // Atmosphere
-                atmosphereColor="#a3e635"
-                atmosphereAltitude={0.15}
-              />
+              <Suspense fallback={<div className="w-12 h-12 rounded-full border-2 border-[#1a1a1a] border-t-accent animate-spin"></div>}>
+                <LazyGlobe allMarkers={allMarkers} />
+              </Suspense>
             </div>
 
             {/* Render extracted ClockBadge component */}
