@@ -19,7 +19,7 @@ export function Projects({ limit, hideHeading = false }) {
       )}
       
       <div className={`grid grid-cols-1 gap-12 ${!hideHeading ? 'mt-12' : ''}`}>
-        {displayProjects.map((project, idx) => (
+        {displayProjects.map((project) => (
           <motion.div 
             key={project.id}
             initial={{ opacity: 0, y: 30 }}

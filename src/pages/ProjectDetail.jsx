@@ -1,10 +1,9 @@
 import { useParams, Navigate } from 'react-router-dom';
 import { PageWrapper } from '../components/ui/PageWrapper';
 import { projectsData } from '../data/projects';
-import { ArrowLeft, ExternalLink, Terminal } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 export function ProjectDetail() {
   const { id } = useParams();
