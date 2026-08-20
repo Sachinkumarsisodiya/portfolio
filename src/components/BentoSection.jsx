@@ -54,7 +54,7 @@ export function BentoSection() {
     { lat: 22.7196, lng: 75.8577, size: 0.03, color: '#d1d5db', name: 'Indore' },
     { lat: 19.0760, lng: 72.8777, size: 0.03, color: '#d1d5db', name: 'Mumbai' },
     { lat: 12.9716, lng: 77.5946, size: 0.03, color: '#d1d5db', name: 'Bangalore' },
-    { lat: 26.9124, lng: 75.7873, size: 0.15, color: '#ec4899', name: 'Jaipur 💖' }
+    { lat: 26.9124, lng: 75.7873, size: 0.15, color: '#ec4899', name: 'Jaipur' }
   ];
 
   return (
