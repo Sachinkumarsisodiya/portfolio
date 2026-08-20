@@ -43,14 +43,23 @@ function AnimatedRoutes() {
 }
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => {
+    // Check if user has already visited in this session
+    const hasVisited = sessionStorage.getItem('hasVisited');
+    return !hasVisited;
+  });
+
+  const handlePreloaderComplete = () => {
+    setLoading(false);
+    sessionStorage.setItem('hasVisited', 'true');
+  };
 
   return (
     <HelmetProvider>
       <Router>
         <AnimatePresence mode="wait">
           {loading ? (
-            <Preloader key="preloader" onComplete={() => setLoading(false)} />
+            <Preloader key="preloader" onComplete={handlePreloaderComplete} />
           ) : (
             <motion.div 
               key="main-app"
