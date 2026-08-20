@@ -24,7 +24,6 @@ function ClockBadge() {
 export function BentoSection() {
   const globeEl = useRef();
   const [countries, setCountries] = useState({ features: [] });
-  const [visitorLocation, setVisitorLocation] = useState(null);
 
   useEffect(() => {
     // Fetch countries borders for deep details
@@ -32,22 +31,6 @@ export function BentoSection() {
       .then(res => res.json())
       .then(setCountries)
       .catch(err => console.error("Error loading country borders:", err));
-
-    // Fetch visitor's real-time location to highlight it on the globe
-    fetch('https://ipapi.co/json/')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.latitude && data.longitude) {
-          setVisitorLocation({
-            lat: data.latitude,
-            lng: data.longitude,
-            size: 0.15,
-            color: '#ec4899', // Bright pink/magenta to stand out
-            name: `${data.city || data.country_name || 'You'} (You)`
-          });
-        }
-      })
-      .catch(err => console.error("Could not fetch location:", err));
   }, []);
 
   useEffect(() => {
@@ -61,7 +44,7 @@ export function BentoSection() {
     }
   }, []);
 
-  const markers = [
+  const allMarkers = [
     { lat: 28.6139, lng: 77.2090, size: 0.05, color: '#a3e635', name: 'New Delhi' },
     { lat: 51.5072, lng: -0.1276, size: 0.05, color: '#ffffff', name: 'London' },
     { lat: 25.2048, lng: 55.2708, size: 0.05, color: '#ffffff', name: 'Dubai' },
@@ -72,18 +55,6 @@ export function BentoSection() {
     { lat: 19.0760, lng: 72.8777, size: 0.03, color: '#d1d5db', name: 'Mumbai' },
     { lat: 12.9716, lng: 77.5946, size: 0.03, color: '#d1d5db', name: 'Bangalore' }
   ];
-
-  // Prevent overlapping labels: remove static markers that are too close to the visitor's live location (within ~250km / 2.5 degrees)
-  let filteredMarkers = markers;
-  if (visitorLocation) {
-    filteredMarkers = markers.filter(m => {
-      const isClose = Math.abs(m.lat - visitorLocation.lat) < 2.5 && Math.abs(m.lng - visitorLocation.lng) < 2.5;
-      return !isClose;
-    });
-  }
-
-  // Combine static markers with dynamic visitor location
-  const allMarkers = visitorLocation ? [...filteredMarkers, visitorLocation] : markers;
 
   return (
     <section className="py-20 relative overflow-hidden border-t border-border">
