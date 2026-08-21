@@ -108,10 +108,6 @@ export function Hero() {
                 <FaLinkedin size={20} />
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="https://www.instagram.com/sachin_indu_sisodiya?igsi=MXQwdzJ2YWVrbGpoaw==" target="_blank" rel="noreferrer" className="text-text-muted hover:text-[#E1306C] transition-colors flex items-center" title="Follow on Instagram">
-                <FaInstagram size={20} />
-                <span className="sr-only">Instagram</span>
-              </a>
               <a href="mailto:sachinsisodiya005@gmail.com" className="text-text-muted hover:text-text-primary transition-colors flex items-center">
                 <Mail size={20} />
                 <span className="sr-only">Email</span>

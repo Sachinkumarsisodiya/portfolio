@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionHeading } from './ui/SectionHeading';
 import { Mail, Eye, Send, CheckCircle2, AlertCircle } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -60,7 +60,6 @@ export function Contact() {
     { icon: Mail, label: 'sachinsisodiya005@gmail.com', href: 'mailto:sachinsisodiya005@gmail.com' },
     { icon: FaLinkedin, label: 'LinkedIn Profile', href: 'https://linkedin.com/in/sachin-kumar-sisodiya' },
     { icon: FaGithub, label: 'GitHub Profile', href: 'https://github.com/Sachinkumarsisodiya' },
-    { icon: FaInstagram, label: 'Instagram Profile', href: 'https://www.instagram.com/sachin_indu_sisodiya?igsi=MXQwdzJ2YWVrbGpoaw==' },
     { icon: Eye, label: 'View Resume', href: '/Sachin_Sisodiya_Resume.pdf' },
   ];
 
