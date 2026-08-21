@@ -51,6 +51,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li><a href="https://github.com/Sachinkumarsisodiya" target="_blank" rel="noreferrer" className="text-text-muted hover:text-accent transition-colors text-sm">GitHub</a></li>
               <li><a href="https://linkedin.com/in/sachin-kumar-sisodiya" target="_blank" rel="noreferrer" className="text-text-muted hover:text-accent transition-colors text-sm">LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/sachin_indu_sisodiya?igsi=MXQwdzJ2YWVrbGpoaw==" target="_blank" rel="noreferrer" className="text-text-muted hover:text-[#E1306C] transition-colors text-sm">Instagram</a></li>
               <li><a href="https://wa.me/917733866682" target="_blank" rel="noreferrer" className="text-text-muted hover:text-[#25D366] transition-colors text-sm">WhatsApp</a></li>
               <li><a href="mailto:sachinsisodiya005@gmail.com" className="text-text-muted hover:text-accent transition-colors text-sm">Email</a></li>
             </ul>
