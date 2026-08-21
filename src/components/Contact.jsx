@@ -86,7 +86,7 @@ export function Contact() {
             Ready to create something <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-emerald-400">extraordinary?</span>
           </h3>
           <p className="text-text-secondary text-lg leading-relaxed mb-10 max-w-lg relative z-10">
-            I'm currently open to new opportunities in Full Stack Development, Python Engineering, and Shopify Development. Whether you have a project in mind or just want to say hi, my inbox is always open.
+            I'm currently open to new opportunities in Full Stack Development, Python Development, and Shopify Development. Whether you have a project in mind or just want to say hi, my inbox is always open.
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">

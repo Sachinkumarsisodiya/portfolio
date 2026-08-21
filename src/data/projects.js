@@ -1,7 +1,29 @@
 export const projectsData = [
   {
-    id: 'wokl-studio',
+    id: 'riyah-theme',
     num: '01',
+    name: 'RIYAH Shopify Theme',
+    category: 'Shopify Theme',
+    image: '/riyah_thumbnail.png',
+    shortDesc: 'A premium Shopify Online Store 2.0 theme. (Store Password: Sisodiyaa)',
+    techStack: ['Shopify', 'Liquid', 'JavaScript', 'Tailwind CSS'],
+    github: 'https://github.com/Sachinkumarsisodiya',
+    live: 'https://test-store-sachin.myshopify.com/',
+    overview: 'RIYAH is a premium Shopify Online Store 2.0 theme built using AI-assisted development. It focuses on modern eCommerce design, high conversion rates, and extensive customization options for merchants. Note: The development store is password protected. Use password: Sisodiyaa',
+    problem: 'Merchants need highly customizable and fast-loading themes that fully support Shopify\'s Online Store 2.0 architecture.',
+    solution: 'Built a modular, section-based theme using Liquid, modern CSS, and vanilla JavaScript, leveraging AI tools to accelerate the development process.',
+    features: [
+      'Online Store 2.0 compatible',
+      'Modular section-based design',
+      'Optimized for fast loading speeds',
+      'AI-assisted development workflow'
+    ],
+    challenges: 'Ensuring seamless compatibility with Shopify\'s dynamic sections and various third-party app block integrations.',
+    learned: 'Gained deep expertise in Shopify Liquid architecture and integrating AI into theme development workflows.'
+  },
+  {
+    id: 'wokl-studio',
+    num: '02',
     name: 'Wokl Music Studio',
     category: 'Web Application',
     image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop',
@@ -23,7 +45,7 @@ export const projectsData = [
   },
   {
     id: 'sisodiya-healthcare',
-    num: '02',
+    num: '03',
     name: 'Sisodiya Healthcare Clinic',
     category: 'Web Application',
     image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2000&auto=format&fit=crop',
@@ -44,7 +66,7 @@ export const projectsData = [
   },
   {
     id: 'freeship-pro',
-    num: '03',
+    num: '04',
     name: 'FreeShip Pro',
     category: 'Shopify App',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop',
@@ -66,7 +88,7 @@ export const projectsData = [
   },
   {
     id: 'testicraft',
-    num: '04',
+    num: '05',
     name: 'Testicraft',
     category: 'Shopify App',
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2000&auto=format&fit=crop',
@@ -87,7 +109,7 @@ export const projectsData = [
   },
   {
     id: 'ticket-tale',
-    num: '05',
+    num: '06',
     name: 'Ticket-Tale',
     category: 'Web Application',
     image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2000&auto=format&fit=crop',
@@ -108,7 +130,7 @@ export const projectsData = [
   },
   {
     id: 'binance-trading-bot',
-    num: '06',
+    num: '07',
     name: 'Binance Futures Testnet Trading Bot',
     category: 'Python API',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2000&auto=format&fit=crop',
@@ -127,27 +149,6 @@ export const projectsData = [
     ],
     challenges: 'Handling API rate limits, maintaining stable WebSocket connections, and managing asynchronous data streams.',
     learned: 'Deepened knowledge of Python asynchronous programming, API integration, and algorithmic trading concepts.'
-  },
-  {
-    id: 'riyah-theme',
-    num: '07',
-    name: 'RIYAH Shopify Theme',
-    category: 'Shopify Theme',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2000&auto=format&fit=crop',
-    shortDesc: 'A premium Shopify Online Store 2.0 theme. (Store Password: Sisodiyaa)',
-    techStack: ['Shopify', 'Liquid', 'JavaScript', 'Tailwind CSS'],
-    github: 'https://github.com/Sachinkumarsisodiya',
-    live: 'https://test-store-sachin.myshopify.com/',
-    overview: 'RIYAH is a premium Shopify Online Store 2.0 theme built using AI-assisted development. It focuses on modern eCommerce design, high conversion rates, and extensive customization options for merchants. Note: The development store is password protected. Use password: Sisodiyaa',
-    problem: 'Merchants need highly customizable and fast-loading themes that fully support Shopify\'s Online Store 2.0 architecture.',
-    solution: 'Built a modular, section-based theme using Liquid, modern CSS, and vanilla JavaScript, leveraging AI tools to accelerate the development process.',
-    features: [
-      'Online Store 2.0 compatible',
-      'Modular section-based design',
-      'Optimized for fast loading speeds',
-      'AI-assisted development workflow'
-    ],
-    challenges: 'Ensuring seamless compatibility with Shopify\'s dynamic sections and various third-party app block integrations.',
-    learned: 'Gained deep expertise in Shopify Liquid architecture and integrating AI into theme development workflows.'
   }
 ];
+

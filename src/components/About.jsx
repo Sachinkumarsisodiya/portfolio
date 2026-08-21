@@ -44,6 +44,26 @@ export function About() {
           <p>
             My technical background spans across building scalable REST APIs, engineering custom Shopify experiences, and utilizing AI-assisted workflows to drastically improve development cycles and output quality. I am passionate about writing maintainable code and solving real-world business problems.
           </p>
+
+          {/* Quick Engineering Focus Pills */}
+          <div className="flex flex-wrap gap-3 pt-2">
+            <span className="px-3 py-1.5 rounded-lg bg-card border border-border text-text-primary text-xs font-mono flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+              Fast Performance
+            </span>
+            <span className="px-3 py-1.5 rounded-lg bg-card border border-border text-text-primary text-xs font-mono flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+              Scalable REST APIs
+            </span>
+            <span className="px-3 py-1.5 rounded-lg bg-card border border-border text-text-primary text-xs font-mono flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+              Custom Shopify Apps
+            </span>
+            <span className="px-3 py-1.5 rounded-lg bg-card border border-border text-text-primary text-xs font-mono flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              AI-Powered Workflow
+            </span>
+          </div>
         </div>
         
         {/* Profile Image */}
@@ -54,18 +74,19 @@ export function About() {
           className="relative group flex justify-center lg:justify-end mt-8 lg:mt-0"
         >
           <div className="relative w-full max-w-[320px] sm:max-w-[380px]">
-            {/* Subtle background glow */}
-            <div className="absolute -inset-4 bg-accent/20 rounded-3xl blur-2xl group-hover:bg-accent/30 transition-colors duration-500 -z-10"></div>
+            {/* Subtle multi-tone background ambient glow matching home page */}
+            <div className="absolute -inset-3 bg-gradient-to-r from-accent/20 via-purple-500/15 to-blue-500/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-500 -z-10"></div>
             
-            <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl aspect-[4/5]">
-              {/* The uploaded profile image */}
+            {/* Main Card Frame with border line hover highlight */}
+            <div className="relative rounded-2xl overflow-hidden border border-border/80 bg-[#0a0a0a] shadow-2xl aspect-[4/5] group-hover:border-accent/40 transition-colors duration-500">
+              {/* Profile Image */}
               <img 
                 src="/profile.jpg" 
-                alt="Sachin Kumar Sisodiya working on laptop" 
+                alt="Sachin Kumar Sisodiya" 
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" 
               />
-              {/* Dark overlay gradient to blend with the dark theme */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              {/* Subtle dark gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-50 pointer-events-none"></div>
             </div>
           </div>
         </motion.div>

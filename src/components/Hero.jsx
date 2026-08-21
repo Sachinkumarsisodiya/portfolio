@@ -99,7 +99,7 @@ export function Hero() {
               </a>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-5 mt-10">
+            <motion.div variants={itemVariants} className="flex items-center gap-5 mt-8">
               <a href="https://github.com/Sachinkumarsisodiya" target="_blank" rel="noreferrer" className="text-text-muted hover:text-text-primary transition-colors flex items-center">
                 <FaGithub size={20} />
                 <span className="sr-only">GitHub</span>
@@ -116,6 +116,22 @@ export function Hero() {
                 <FaWhatsapp size={20} />
                 <span className="sr-only">WhatsApp</span>
               </a>
+            </motion.div>
+
+            {/* Quick Metrics Bar */}
+            <motion.div variants={itemVariants} className="grid grid-cols-3 gap-4 pt-6 mt-8 border-t border-border/60 max-w-lg">
+              <div>
+                <p className="text-2xl sm:text-3xl font-bold font-mono text-text-primary">1+</p>
+                <p className="text-xs text-text-muted font-sans mt-0.5">Years Exp.</p>
+              </div>
+              <div>
+                <p className="text-2xl sm:text-3xl font-bold font-mono text-text-primary">30+</p>
+                <p className="text-xs text-text-muted font-sans mt-0.5">Projects Built</p>
+              </div>
+              <div>
+                <p className="text-2xl sm:text-3xl font-bold font-mono text-accent">100%</p>
+                <p className="text-xs text-text-muted font-sans mt-0.5">Code Quality</p>
+              </div>
             </motion.div>
           </motion.div>
 
@@ -148,22 +164,27 @@ export function Hero() {
                   <p className="mt-1 text-text-muted">Sachin Kumar Sisodiya</p>
                 </div>
                 
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
                   <span className="text-accent">$</span> <span className="text-text-primary">role</span>
-                  <p className="mt-1 text-text-muted">Full Stack Python Developer</p>
+                  <p className="mt-1 text-text-muted">Full Stack Python & Shopify Developer</p>
                 </motion.div>
 
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5 }}>
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.0 }}>
                   <span className="text-accent">$</span> <span className="text-text-primary">stack</span>
-                  <p className="mt-1 text-text-muted">Python • FastAPI • React • Shopify</p>
+                  <p className="mt-1 text-text-muted">Python • FastAPI • React • Shopify • Liquid</p>
                 </motion.div>
 
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3.5 }}>
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.8 }}>
+                  <span className="text-accent">$</span> <span className="text-text-primary">location</span>
+                  <p className="mt-1 text-text-muted">Jaipur, Rajasthan, India (IST / UTC+5:30)</p>
+                </motion.div>
+
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3.6 }}>
                   <span className="text-accent">$</span> <span className="text-text-primary">status</span>
-                  <p className="mt-1 text-accent">Open to Work</p>
+                  <p className="mt-1 text-accent font-semibold">Available for Work</p>
                 </motion.div>
                 
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 4.5 }} className="flex items-center">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 4.4 }} className="flex items-center">
                   <span className="text-accent">$</span> <span className="w-2 h-4 bg-text-primary ml-2 animate-pulse"></span>
                 </motion.div>
               </div>
