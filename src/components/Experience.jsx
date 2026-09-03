@@ -3,30 +3,37 @@ import { SectionHeading } from './ui/SectionHeading';
 import { Briefcase } from 'lucide-react';
 
 export function Experience() {
+  /* Commented out 1-year experience entry for now
+  const fullStackExperience = {
+    role: "Full Stack Developer / Shopify Developer",
+    company: "Sabai Innovations Pvt. Ltd.",
+    date: "September 2025 – July 2026",
+    responsibilities: [
+      "Full Stack web development",
+      "Shopify theme development & customization",
+      "Shopify application development",
+      "Frontend development",
+      "Python development & API integration",
+      "Database work",
+      "Version control via Git/GitHub & deployment",
+      "AI-assisted development workflows"
+    ]
+  };
+  */
+
   const experiences = [
     {
-      role: "Full Stack Developer / Shopify Developer",
+      role: "IT Intern",
       company: "Sabai Innovations Pvt. Ltd.",
-      date: "September 2025 – July 2026",
+      date: "January 2026 – July 2026",
       responsibilities: [
         "Full Stack web development",
         "Shopify theme development & customization",
         "Shopify application development",
         "Frontend development",
-        "Python development & API integration",
-        "Database work",
+        "Backend development",
         "Version control via Git/GitHub & deployment",
         "AI-assisted development workflows"
-      ]
-    },
-    {
-      role: "Intern",
-      company: "Sabai Innovations Pvt. Ltd.",
-      date: "June 2025 – August 2025",
-      responsibilities: [
-        "Assisted in full-stack development tasks.",
-        "Learned and implemented modern web development best practices.",
-        "Contributed to frontend and backend codebases."
       ]
     }
   ];

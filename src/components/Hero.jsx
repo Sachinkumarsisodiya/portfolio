@@ -119,11 +119,13 @@ export function Hero() {
             </motion.div>
 
             {/* Quick Metrics Bar */}
-            <motion.div variants={itemVariants} className="grid grid-cols-3 gap-4 pt-6 mt-8 border-t border-border/60 max-w-lg">
+            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4 pt-6 mt-8 border-t border-border/60 max-w-lg">
+              {/* Commented out 1+ Years Exp metric for now
               <div>
                 <p className="text-2xl sm:text-3xl font-bold font-mono text-text-primary">1+</p>
                 <p className="text-xs text-text-muted font-sans mt-0.5">Years Exp.</p>
               </div>
+              */}
               <div>
                 <p className="text-2xl sm:text-3xl font-bold font-mono text-text-primary">30+</p>
                 <p className="text-xs text-text-muted font-sans mt-0.5">Projects Built</p>
