@@ -1,7 +1,31 @@
 export const projectsData = [
   {
-    id: 'riyah-theme',
+    id: 'rekha-eye-hospital',
     num: '01',
+    name: 'Rekha Eye Hospital (REH)',
+    category: 'Full-Stack System',
+    image: '/reh_thumbnail.png',
+    shortDesc: 'A production-grade, full-stack hospital website with a smart appointment booking engine and a secure admin management panel.',
+    techStack: ['React', 'Vite', 'Tailwind CSS', 'Python', 'Flask', 'SQLAlchemy', 'PostgreSQL', 'Node.js', 'Puppeteer', 'JWT', 'Docker'],
+    github: 'https://github.com/Sachinkumarsisodiya/REH',
+    live: 'https://reh-sigma.vercel.app/',
+    overview: 'Rekha Eye Hospital (REH) is a production-grade, full-stack hospital management system and patient portal with a smart appointment booking engine and a secure admin management panel, built end-to-end using AI-assisted development.',
+    problem: 'Hospitals and specialty eye clinics require intuitive patient self-booking with dynamic slot generation, zero double-booking prevention, automated patient communication, and a secure multi-action admin portal to manage clinical schedules in real-time.',
+    solution: 'Designed and built a responsive patient portal with an interactive multi-step appointment booking wizard, backed by a RESTful Flask API with SQLAlchemy ORM and PostgreSQL. Integrated a Node.js + Puppeteer microservice for automated WhatsApp/SMS booking confirmations and real-time alerts.',
+    features: [
+      'Interactive multi-step appointment booking wizard with dynamic time-slot generation and zero double-booking logic',
+      'Secure JWT-authenticated admin dashboard for real-time appointment approval, rejection, and rescheduling with full audit history',
+      'Automated WhatsApp/SMS notification microservice (Node.js + Puppeteer) for instant booking confirmations and alert notifications',
+      'RESTful Flask backend with modular blueprint architecture and SQLAlchemy ORM connected to PostgreSQL database',
+      'Deployed cloud architecture: React on Vercel, Flask API & PostgreSQL on Railway, and containerized Node.js microservice with persistent volume storage',
+      'Production-grade infrastructure: CORS security, Gunicorn WSGI server, environment-based configuration, and Docker containerization'
+    ],
+    challenges: 'Architecting real-time appointment synchronization across dynamic calendar slots while managing a persistent containerized Node.js Puppeteer microservice for WhatsApp messaging.',
+    learned: 'Gained deep hands-on expertise in multi-service microservice orchestration, Docker containerization on cloud platforms (Railway/Vercel), automated headless messaging pipelines, and building robust full-stack healthcare platforms.'
+  },
+  {
+    id: 'riyah-theme',
+    num: '02',
     name: 'RIYAH Shopify Theme',
     category: 'Shopify Theme',
     image: '/riyah_thumbnail.png',
@@ -23,7 +47,7 @@ export const projectsData = [
   },
   {
     id: 'wokl-studio',
-    num: '02',
+    num: '03',
     name: 'Wokl Music Studio',
     category: 'Web Application',
     image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop',
@@ -45,7 +69,7 @@ export const projectsData = [
   },
   {
     id: 'sisodiya-healthcare',
-    num: '03',
+    num: '04',
     name: 'Sisodiya Healthcare Clinic',
     category: 'Web Application',
     image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2000&auto=format&fit=crop',
@@ -66,7 +90,7 @@ export const projectsData = [
   },
   {
     id: 'freeship-pro',
-    num: '04',
+    num: '05',
     name: 'FreeShip Pro',
     category: 'Shopify App',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop',
@@ -88,7 +112,7 @@ export const projectsData = [
   },
   {
     id: 'testicraft',
-    num: '05',
+    num: '06',
     name: 'Testicraft',
     category: 'Shopify App',
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2000&auto=format&fit=crop',
@@ -109,7 +133,7 @@ export const projectsData = [
   },
   {
     id: 'ticket-tale',
-    num: '06',
+    num: '07',
     name: 'Ticket-Tale',
     category: 'Web Application',
     image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2000&auto=format&fit=crop',
@@ -130,7 +154,7 @@ export const projectsData = [
   },
   {
     id: 'binance-trading-bot',
-    num: '07',
+    num: '08',
     name: 'Binance Futures Testnet Trading Bot',
     category: 'Python API',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2000&auto=format&fit=crop',
@@ -151,4 +175,3 @@ export const projectsData = [
     learned: 'Deepened knowledge of Python asynchronous programming, API integration, and algorithmic trading concepts.'
   }
 ];
-
