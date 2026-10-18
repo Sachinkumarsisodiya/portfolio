@@ -32,7 +32,7 @@ export function Home() {
         <div className="text-center mb-12">
           <SectionHeading title="Featured" highlight="Work" subtitle="Projects" />
         </div>
-        <Projects limit={2} hideHeading={true} />
+        <Projects limit={4} hideHeading={true} />
         <div className="text-center mt-12 relative z-10">
           <Link to="/projects" className="inline-flex items-center px-6 py-3 bg-card border border-border rounded-md text-text-primary hover:border-accent/50 hover:text-accent transition-colors font-mono text-sm">
             cd /projects <ArrowRight size={16} className="ml-2" />

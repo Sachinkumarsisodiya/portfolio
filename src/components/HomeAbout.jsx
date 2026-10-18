@@ -48,7 +48,7 @@ export function HomeAbout() {
                 </div>
                 <div>
                   <h4 className="text-text-primary text-sm font-bold">Current Role</h4>
-                  <p className="text-text-muted text-xs mt-0.5 font-mono">IT Intern @ Sabai Innovations</p>
+                  <p className="text-text-muted text-xs mt-0.5 font-mono">AI Automation & Web Dev @ Hetalls Global</p>
                 </div>
               </div>
             </div>

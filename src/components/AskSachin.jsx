@@ -52,9 +52,9 @@ He is a Full-Stack Python and Shopify Developer focused on crafting clean, effic
 He builds scalable REST APIs (FastAPI), custom Shopify experiences (Liquid, Apps), and utilizes AI-assisted workflows.
 
 **Skills:** Frontend (React, Vite, Tailwind CSS), Backend (Python, FastAPI), Database (SQL), Shopify (Apps, Themes, Liquid), AI Tools.
-**Experience:** IT Intern at Sabai Innovations Pvt. Ltd., Jaipur (January 2026 – July 2026).
+**Experience:** AI Automation & Website Developer at HETALLS GLOBAL PVT. LTD., Jaipur (October 2026 – Present); previously Full Stack Web Developer at SABAI INNOVATIONS PVT. LTD., Jaipur (September 2025 – July 2026).
 **Education:** Master of Commerce & Bachelor of Commerce (University of Rajasthan).
-**Projects:** Wokl Music Studio, Sisodiya Healthcare Clinic, FreeShip Pro, Testicraft, Ticket-Tale, Binance Trading Bot, Student Marksheet System, RIYAH Shopify Theme (Password: Sisodiyaa).
+**Projects:** SmartInvoice (AI Accounts Payable Automation with FastAPI, Celery, Redis, and React), Rekha Eye Hospital (REH), Homes Spun Store (Shopify Home Textile & Lifestyle E-commerce), House of Reshmi (Shopify Saree & Ethnic Wear Store), RIYAH Shopify Theme (Password: Sisodiyaa), Wokl Music Studio, Sisodiya Healthcare Clinic, FreeShip Pro, Testicraft, Ticket-Tale, Binance Trading Bot.
 **Contact:** Email: sachinsisodiya005@gmail.com, Mobile: +91-7733866682, Location: Agra Road, Jaipur, Rajasthan.`;
 
       const history = messages.map(msg => ({

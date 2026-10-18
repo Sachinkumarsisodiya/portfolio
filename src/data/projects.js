@@ -1,7 +1,31 @@
 export const projectsData = [
   {
-    id: 'rekha-eye-hospital',
+    id: 'smart-invoice',
     num: '01',
+    name: 'SmartInvoice — AI Accounts Payable Automation',
+    category: 'Full-Stack SaaS',
+    image: '/smartinvoice_thumbnail.png',
+    shortDesc: 'A full-stack financial automation platform that simplifies accounts payable operations by transforming vendor invoices into structured, validated financial records.',
+    techStack: ['React', 'Vite', 'FastAPI', 'Python', 'PostgreSQL', 'Celery', 'Redis', 'Docker', 'Tailwind CSS', 'PyMuPDF', 'Tesseract OCR'],
+    github: 'https://github.com/Sachinkumarsisodiya/Smart_invoice_automation',
+    live: 'https://smartinvoice-automation.vercel.app/',
+    overview: 'SmartInvoice is a full-stack financial automation platform that simplifies accounts payable operations by transforming vendor invoices and receipts into structured, validated financial records. Built with React, FastAPI, PostgreSQL, Celery, and Redis, the platform uses asynchronous background processing to handle document ingestion, AI-assisted data extraction, financial verification, and payment due-date monitoring.',
+    problem: 'Accounts payable teams struggle with tedious manual data entry, human computation errors in invoices and GST, high risk of duplicate invoice processing/payments, and a lack of automated due-date monitoring across multiple vendors.',
+    solution: 'Engineered an event-driven automation platform featuring hybrid document parsing (PyMuPDF & Tesseract OCR), modular LLM extraction providers, deterministic Python arithmetic & GST validation logic, SHA-256 fingerprinting for duplicate prevention, and Celery Beat scheduled jobs for automated payment monitoring and alerts.',
+    features: [
+      'Intelligent Invoice Ingestion: Accepts document uploads with file validation, SHA-256 duplicate fingerprinting, and non-blocking background queue dispatch',
+      'Hybrid Document Processing: Extracts digital PDF text with PyMuPDF and utilizes Tesseract OCR as a fallback for scanned receipts and images',
+      'AI-Assisted Extraction & Validation: Automatically extracts vendor details, line items, and totals with deterministic Python verification for arithmetic & GST accuracy',
+      'Duplicate Invoice Prevention: Dual-layer protection using SHA-256 document hashing and database-level uniqueness constraints on vendor/invoice identifiers',
+      'Automated Payment Monitoring: Scheduled Celery Beat tasks to monitor pending/overdue invoices and trigger automated email reminders with idempotent processing',
+      'Enterprise Security & Audit Trail: JWT authentication with role-based access control (Admin, Staff, Viewer), bcrypt password hashing, and complete audit logging'
+    ],
+    challenges: 'Architecting non-blocking background task orchestration with Celery and Redis while ensuring deterministic arithmetic and GST tax validation over AI-extracted document outputs.',
+    learned: 'Mastered event-driven Celery & Redis job queues, hybrid OCR and LLM document parsing pipelines, robust database integrity constraints, and auditable financial workflows in production.'
+  },
+  {
+    id: 'rekha-eye-hospital',
+    num: '02',
     name: 'Rekha Eye Hospital (REH)',
     category: 'Full-Stack System',
     image: '/reh_thumbnail.png',
@@ -24,8 +48,56 @@ export const projectsData = [
     learned: 'Gained deep hands-on expertise in multi-service microservice orchestration, Docker containerization on cloud platforms (Railway/Vercel), automated headless messaging pipelines, and building robust full-stack healthcare platforms.'
   },
   {
+    id: 'homes-spun-store',
+    num: '03',
+    name: 'Homes Spun Store',
+    category: 'Shopify Store',
+    image: '/homespunstore_thumbnail.jpg',
+    shortDesc: 'A Shopify-based home textile & lifestyle e-commerce store featuring structured collections, rich product presentation, and seamless checkout.',
+    techStack: ['Shopify', 'Liquid', 'E-commerce UI', 'Responsive Design', 'Storefront UX'],
+    github: 'https://github.com/Sachinkumarsisodiya',
+    live: 'https://homespunstore.com/',
+    overview: 'Homes Spun Store is an online home textile and lifestyle store developed using Shopify to showcase and sell stylish, functional textile products for modern homes. The website features a diverse product range, including bedsheets, quilts, tablecloths, cushions, and cushion covers, designed to bring comfort and elegance to every living space.',
+    problem: 'Home textile retailers often face challenges in presenting multi-category products effectively, leading to customer confusion and drop-offs without clear category hierarchies, fabric details, and visual styling cues.',
+    solution: 'Engineered an intuitive, visually rich Shopify storefront with organized collection-based navigation (Bed, Dining, Living, Weddings & Registry), rich product detail pages with fabric specifications and pricing options, promotional discount banners, and an integrated Shopify checkout.',
+    features: [
+      'Shopify-based e-commerce storefront for home textile and lifestyle products',
+      'Multi-category product catalogue management covering bedsheets, quilts, tablecloths, and cushions',
+      'Organized collection-based browsing to simplify customer product discovery across home spaces',
+      'Detailed product pages featuring high-resolution lifestyle imagery, pricing, and variant selections',
+      'Optimized shopping cart and seamless Shopify checkout experience with promotional discount support',
+      'Fully responsive design ensuring smooth navigation and fast loading across mobile and desktop devices'
+    ],
+    challenges: 'Organizing a wide range of diverse textile SKUs into intuitive, aesthetic collections while ensuring high-resolution lifestyle photography loads smoothly across mobile viewports.',
+    learned: 'Deepened expertise in Shopify catalog structuring, category-level merchandising, mobile-first e-commerce UX, and high-conversion storefront design for lifestyle brands.'
+  },
+  {
+    id: 'house-of-reshmi',
+    num: '04',
+    name: 'House of Reshmi',
+    category: 'Shopify Store',
+    image: '/houseofresmi_thumbnail.png',
+    shortDesc: 'A modern, elegant Shopify e-commerce store designed to showcase and sell handcrafted ethnic wear and sarees with a frictionless shopping experience.',
+    techStack: ['Shopify', 'Liquid', 'E-commerce UI', 'Responsive Design', 'JavaScript'],
+    github: 'https://github.com/Sachinkumarsisodiya',
+    live: 'https://www.houseofresmi.com/',
+    overview: 'House of Reshmi is a Shopify-based e-commerce store designed to showcase and sell sarees through a modern, elegant, and user-friendly online shopping experience. The store provides customers with a seamless way to explore handcrafted saree collections, discover intricate designs, view detailed product information, and shop online with ease.',
+    problem: 'Ethnic wear brands often struggle with digital presentation, cluttered mobile navigation, and slow catalog discovery that can negatively impact conversions for traditional shoppers.',
+    solution: 'Designed and deployed an elegant, high-conversion Shopify storefront featuring responsive collection browsing (Cotton, Silk, Ilkal), rich media product showcases, promotional announcement banners, and a frictionless cart and checkout flow.',
+    features: [
+      'Shopify-based online storefront for ethnic wear and traditional saree sales',
+      'Curated collection browsing with category filters for Festive Sale, Cotton, Silk, and Ilkal Sarees',
+      'Rich product detail pages featuring high-resolution imagery, pricing, discounts, and fabric descriptions',
+      'Optimized shopping cart and seamless checkout experience backed by Shopify payments',
+      'Fully responsive mobile-first architecture ensuring smooth browsing across all device sizes',
+      'Promotional announcement bar and hero banner carousels designed to drive conversions and customer engagement'
+    ],
+    challenges: 'Delivering a luxurious, high-fashion aesthetic while maintaining optimal loading speeds, high-resolution imagery, and smooth mobile responsiveness.',
+    learned: 'Deepened real-world expertise in production Shopify store setup, collection-based catalog architecture, conversion-focused e-commerce UI design, and responsive merchant customization.'
+  },
+  {
     id: 'riyah-theme',
-    num: '02',
+    num: '05',
     name: 'RIYAH Shopify Theme',
     category: 'Shopify Theme',
     image: '/riyah_thumbnail.png',
@@ -47,7 +119,7 @@ export const projectsData = [
   },
   {
     id: 'wokl-studio',
-    num: '03',
+    num: '06',
     name: 'Wokl Music Studio',
     category: 'Web Application',
     image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop',
@@ -69,7 +141,7 @@ export const projectsData = [
   },
   {
     id: 'sisodiya-healthcare',
-    num: '04',
+    num: '07',
     name: 'Sisodiya Healthcare Clinic',
     category: 'Web Application',
     image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2000&auto=format&fit=crop',
@@ -90,7 +162,7 @@ export const projectsData = [
   },
   {
     id: 'freeship-pro',
-    num: '05',
+    num: '08',
     name: 'FreeShip Pro',
     category: 'Shopify App',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop',
@@ -112,7 +184,7 @@ export const projectsData = [
   },
   {
     id: 'testicraft',
-    num: '06',
+    num: '09',
     name: 'Testicraft',
     category: 'Shopify App',
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2000&auto=format&fit=crop',
@@ -133,7 +205,7 @@ export const projectsData = [
   },
   {
     id: 'ticket-tale',
-    num: '07',
+    num: '10',
     name: 'Ticket-Tale',
     category: 'Web Application',
     image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2000&auto=format&fit=crop',
@@ -154,7 +226,7 @@ export const projectsData = [
   },
   {
     id: 'binance-trading-bot',
-    num: '08',
+    num: '11',
     name: 'Binance Futures Testnet Trading Bot',
     category: 'Python API',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2000&auto=format&fit=crop',
